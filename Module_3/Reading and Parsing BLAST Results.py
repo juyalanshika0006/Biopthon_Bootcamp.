@@ -1,5 +1,6 @@
 from Bio.Blast import NCBIXML
 
+
 with open(
     "Module_3/BRCA1_blast_result.xml"
 ) as result_handle:
@@ -7,24 +8,35 @@ with open(
     blast_record = NCBIXML.read(
         result_handle
     )
-print("\n Queries:", blast_record.query)
-print("\n Database:", blast_record.database)
-print("\n Description:", blast_record.descriptions)
-for alignment in blast_record.alignments:
 
-    for hsp in alignment.hsps:
 
-        print(
-            hsp
-        )
+
+query_length = (
+    blast_record.query_letters
+)
+
+
+
 for alignment in blast_record.alignments:
 
     print(
-        "Hit:",
+        "\nHit:",
         alignment.title
     )
 
     for hsp in alignment.hsps:
+
+        
+        identity_percentage = (
+            hsp.identities
+            / hsp.align_length
+        ) * 100
+
+        
+        coverage = (
+            hsp.align_length
+            / query_length
+        ) * 100
 
         print(
             "E-value:",
@@ -32,18 +44,20 @@ for alignment in blast_record.alignments:
         )
 
         print(
-            "Score:",
-            hsp.score
-        )
-
-        print(
-            "Identities:",
-            hsp.identities
+            "Identity:",
+            identity_percentage,
+            "%"
         )
 
         print(
             "Alignment length:",
             hsp.align_length
+        )
+
+        print(
+            "Query coverage:",
+            coverage,
+            "%"
         )
 
         print(
@@ -56,4 +70,4 @@ for alignment in blast_record.alignments:
             hsp.sbjct
         )
 
-        print("-" * 50)        
+        print("-" * 60)

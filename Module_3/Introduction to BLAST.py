@@ -16,4 +16,14 @@ result_handle = NCBIWWW.qblast(
     protein_sequence
 )
 
-print("BLAST search submitted!")
+with open(
+    "BRCA1_blast_result.xml",
+    "w"
+) as file:
+
+    file.write(
+        result_handle.read()
+    )
+result_handle.close()
+
+print("BLAST results saved Succesfully!")

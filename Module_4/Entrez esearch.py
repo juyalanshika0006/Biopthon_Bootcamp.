@@ -6,7 +6,7 @@ Entrez.email = "juyalanshika6@gmail.com"
 
 search_handle = Entrez.esearch(
     db="nucleotide",
-    term='BRCA1[Gene Name] AND Homo sapiens[Organism] AND RefSeq[Filter]'
+    term='BRCA1 AND Homo sapiens AND RefSeq'
 )
 
 search_record = Entrez.read(

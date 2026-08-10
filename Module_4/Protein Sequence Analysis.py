@@ -19,6 +19,22 @@ print("Molecular weight:", mw)
 print("-"*50)
 
 composition=analysis.count_amino_acids()
+
+
+most_common = max(
+    composition,
+    key=composition.get
+)
+
+print(
+    "Most common amino acid:",
+    most_common
+)
+
+print(
+    "Count:",
+    composition[most_common]
+)
 print("Amino acid composition:", composition)
 
 print("-"*50)

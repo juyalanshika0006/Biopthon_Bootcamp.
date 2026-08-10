@@ -42,3 +42,41 @@ print("-"*50)
 percentage=analysis.get_amino_acids_percent()
 print("Amino acid percentage:", percentage)
 print("-"*50)
+
+pi = analysis.isoelectric_point()
+
+print(
+    "Isoelectric point:",
+    pi
+)
+
+aromaticity = analysis.aromaticity()
+
+print(
+    "Aromaticity:",
+    aromaticity
+)
+
+instability = analysis.instability_index()
+
+print(
+    "Instability Index:",
+    instability
+)
+
+structure = analysis.secondary_structure_fraction()
+
+print(
+    "Helix:",
+    structure[0]
+)
+
+print(
+    "Turn:",
+    structure[1]
+)
+
+print(
+    "Sheet:",
+    structure[2]
+)

@@ -8,3 +8,21 @@ record=SeqIO.read(
 
 protein=str(record.seq)
 print(protein[:50])
+
+print("-"*50)
+
+analysis=ProteinAnalysis(protein)
+
+mw=analysis.molecular_weight()
+print("Molecular weight:", mw)
+
+print("-"*50)
+
+composition=analysis.count_amino_acids()
+print("Amino acid composition:", composition)
+
+print("-"*50)
+
+percentage=analysis.get_amino_acids_percent()
+print("Amino acid percentage:", percentage)
+print("-"*50)
